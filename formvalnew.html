@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Registration Form</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+205002067
+Preethi Bijoy
+P.S.Srivatsa
+background-color: #f2f2f2;
+}
+form {
+width: 500px;
+margin: auto;
+padding: 20px;
+background-color: #fff;
+border-radius: 10px;
+box-shadow: 0px 0px 10px #ccc;
+}
+h1 {
+}
+text-align: center;
+margin-bottom: 20px;
+label {
+display: inline-block;
+width: 100px;
+margin-bottom: 10px;
+font-weight: bold;
+}
+input[type="text"] {
+padding: 5px; width: 
+100%; border-radius:
+5px;
+border: 1px solid #ccc;
+}
+input[type="submit"], input[type="reset"] {
+202
+display: block;
+margin-top: 20px;
+padding: 10px 20px;
+background-color: #4CAF50;
+color: #fff;
+border: none; borderradius: 5px;cursor:
+pointer;
+}
+input[type="submit"]:hover, input[type="reset"]:hover
+{
+background-color: #3e8e41;
+}
+</style>
+</head>
+<body>
+<h1>Registration Form</h1>
+<form action="" method="post">
+<label for="name">Name:</label>
+<input type="text" name="name" placeholder="Enter your
+name">
+age">
+<br>
+<label for="age">Age:</label>
+<input type="text" name="age" placeholder="Enter your
+<br>
+<label for="email">Email:</label>
+<input type="text" name="email" placeholder="Enter
+your email">
+205002067
+Preethi Bijoy
+P.S.Srivatsa
+<br>
+<label for="phone">Phone:</label>
+<input type="text" name="phone" placeholder="Enteryour
+phone">
+<br>
+<label for="address">Address:</label>
+<input type="text" name="address" placeholder="Enteryour
+address">
+<br>
+<label for="city">City:</label>
+<input type="text" name="city" placeholder="Enter your
+city">
+<br>
+<label for="state">State:</label>
+<input type="text" name="state" placeholder="Enter
+your state">
+<br>
+<label for="aadhar">Aadhar:</label>
+<input type="text" name="Aadhar" placeholder="Enteryour
+Aadhar No.">
+<br>
+<input type="submit" name="submit" value="Submit">
+<input type="reset" value="Reset">
+</form>
+<script src="./app.js"></script>
+</body>
+</html>
+App.js:
+205002067
+Preethi Bijoy
+const form = document.querySelector('form');
+const nameInput = document.querySelector('input[name="name"]');
+const ageInput = document.querySelector('input[name="age"]');
+const emailInput = document.querySelector('input[name="email"]');
+const phoneInput = document.querySelector('input[name="phone"]');
+const addressInput = document.querySelector('input[name="address"]');
+const cityInput = document.querySelector('input[name="city"]');
+const stateInput = document.querySelector('input[name="state"]');
+const aadharInput = document.querySelector('input[name="Aadhar"]');
+const nameRegex = /^[a-zA-Z ]{2,30}$/;const
+ageRegex = /^(1[89]|[2-9]\d)$/;
+const emailRegex = /^([a-zA-Z0-9._-]+)@([a-zA-Z0-9.-]+)\.([a-zAZ]{2,5})$/;
+const phoneRegex = /^[0-9]{10}$/;
+const addressRegex = /^[a-zA-Z0-9\s,'-]*$/;const
+cityRegex = /^[a-zA-Z\s]+$/;
+const stateRegex = /^[a-zA-Z\s]+$/;const
+aadharRegex = /^[0-9]{12}$/;
+form.addEventListener('submit', (e) => {
+e.preventDefault();
+if (!nameRegex.test(nameInput.value)) {
+205002067
+Preethi Bijoy
+alert('Please enter a valid name (2-30 characters,only
+letters and spaces)');
+return;
+}
+if (!ageRegex.test(ageInput.value)) {
+alert('Please enter a valid age (18-99 years)');return;
+}
+if (!emailRegex.test(emailInput.value)) { alert('Please 
+enter a valid email address');return;
+}
+if (!phoneRegex.test(phoneInput.value)) {
+alert('Please enter a valid 10-digit phone number');return;
+}
+if (!addressRegex.test(addressInput.value)) { alert('Please enter a
+valid address (letters, numbers,
+spaces, commas, apostrophes, and hyphens only)');return;
+}
+if (!cityRegex.test(cityInput.value)) {
+alert('Please enter a valid city name (letters andspaces
+only)');
+return;
+}
+if (!stateRegex.test(stateInput.value)) {
+alert('Please enter a valid state name (letters andspaces
+only)');
+205002099
+P.S.Srivatsa
+return;
+}
+if (!aadharRegex.test(aadharInput.value)) { alert('Please
+enter a valid Aadhar number (12
+digits)');
+return;
+});
+}
+form.submit();
