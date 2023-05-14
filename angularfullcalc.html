@@ -1,0 +1,43 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+ <title>Angular Components, Services, and Controllers Example</title>
+ <script 
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+ <script src="app.js"></script>
+</head>
+<body>
+ <div ng-controller="MyController as ctrl">
+
+ <my-component></my-component>
+ </div>
+</body>
+</html>
+<script>
+ angular.module('myApp', [])
+.service('MyService', function() {
+ this.multiply = function(a, b) {
+ return a * b;
+ };
+})
+.component('myComponent', {
+ template: '<div>' +
+ '<h2>{{ctrl.title}}</h2>' +
+ '<input type="number" ng-model="ctrl.num1">' +
+ '<input type="number" ng-model="ctrl.num2">' +
+ '<p>{{ctrl.num1}} x {{ctrl.num2}} = {{ctrl.result}}</p>' +
+ '</div>',
+ controller: function(MyService) {
+ this.title = 'Simple Calculator using angular components,services and controllers';
+ this.num1 = 0;
+ this.num2 = 0;
+ this.result = 0;
+ this.multiply = function() {
+ this.result = MyService.multiply(this.num1, this.num2);
+ };
+ }, 
+ controllerAs: 'ctrl'
+})
+.controller('MyController', function() {
+});
+</script>
