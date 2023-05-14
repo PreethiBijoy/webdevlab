@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Details</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/ang
+ular.min.js"></script>
+<style>
+table {
+border-collapse: collapse;
+width: 100%;
+}
+th, td {
+
+text-align: left;
+padding: 8px;
+border-bottom: 1px solid #ddd;
+}
+tr:hover {
+background-color: #f5f5f5;
+}
+</style>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+<h1>Student Details</h1>
+<form ng-submit="addStudent()">
+<label for="name">Name:</label>
+<input type="text" id="name" ng-model="name"
+required><br><br>
+<label for="rollno">Roll No:</label>
+<input type="text" id="rollno" ng-model="rollno"
+required><br><br>
+<label for="marks">Marks:</label>
+<input type="number" id="marks" ng-model="marks"
+required><br><br>
+<button type="submit">Add Student</button>
+</form>
+
+<br>
+<label for="search">Search by Name:</label>
+<input type="text" id="search" ng-model="search">
+<br><br>
+<table>
+<tr>
+<th>Name</th>
+<th>Roll No</th>
+<th>Marks</th>
+</tr>
+<tr ng-repeat="student in students | filter:search |orderBy:'-
+marks'">
+<td>{{ student.name }}</td>
+<td>{{ student.rollno }}</td>
+<td>{{ student.marks }}</td>
+</tr>
+</table>
+<script>
+var app = angular.module("myApp", []);
+app.controller("myCtrl", function($scope) {
+$scope.students = [];
+$scope.addStudent = function() {
+$scope.students.push({ name: 
+$scope.name, rollno: 
+$scope.rollno,marks:
+$scope.marks});
+
+$scope.name = "";
+$scope.rollno = "";
+$scope.marks = "";
+};
+});
+</script>
+</body>
+</html>
