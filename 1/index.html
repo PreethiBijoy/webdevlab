@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>TO-DO LIST</title>
+    
+</head>
+<body>
+    <div class="what">
+        <div class="header">
+
+            <div class="nav-left">
+                <h1 class="logo">Hello Food Lovers!</h1>
+            </div>
+
+            <div class="nav-mid">
+            </div>
+
+            <div class="nav-right">
+            </div>
+            
+        </div>
+        
+        <div class="main-div">
+    
+            <div class="left">
+                <video class="cat" width="640" height="360" controls>
+                    <h1>Delicious Pasta!</h1>
+                    <source src="pasta.mp4" type="video/mp4">
+                </video>
+                <h1>Ingredients</h1>
+                <table>
+                    <thead>
+                      <tr>
+                        <th>Ingredient</th>
+                        <th>Quantity</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Flour</td>
+                        <td>2 cups</td>
+                      </tr>
+                      <tr>
+                        <td>Sugar</td>
+                        <td>1/2 cup</td>
+                      </tr>
+                      <tr>
+                        <td>Eggs</td>
+                        <td>2</td>
+                      </tr>
+                      <tr>
+                        <td>Milk</td>
+                        <td>1 cup</td>
+                      </tr>
+                      <tr>
+                        <td>Butter</td>
+                        <td>1/4 cup</td>
+                      </tr>
+                      <tr>
+                        <td>Baking powder</td>
+                        <td>2 teaspoons</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <h1>Sound of vegetables being chopped!</h1>
+                <audio controls>
+                    <h1>Sound of vegetables being chopped!</h1>
+                    <source src="Two Cats Meowing - QuickSounds.com.mp3" type="audio/mpeg">
+                </audio>
+                <hr>
+                <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
+                </canvas>
+                <svg width="100" height="100">
+                    <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="red" />
+                </svg>
+
+                <h1>Get your geo location!</h1>
+                <button onclick="getLocation()">Try It</button>
+                <p id="demo"></p>
+                <script>
+                    var x = document.getElementById("demo");
+                    function getLocation() {
+                        if (navigator.geolocation) {
+                            navigator.geolocation.getCurrentPosition(showPosition);
+                        } else {
+                            x.innerHTML = "Geolocation is not supported by this browser.";
+                        }
+                    }
+                    function showPosition(position) {
+                        x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+                    }
+                </script> 
+                   
+                   
+            </div>
+            
+            <div class="right">
+                <div class="top">
+                    <h1>Clock!</h1>
+                    <div class="clock" id="clock"></div>
+                </div>
+                <div class="bot">
+                    <h1>Animation!</h1>
+                    <div class="trans"></div>
+                </div>
+            </div>
+    
+        </div>
+    </div>
+    <h1>Clock!</h1>
+    <script src="clock.js"></script>
+</body>
+
+</html>
